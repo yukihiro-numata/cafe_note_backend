@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_03_041420) do
+ActiveRecord::Schema.define(version: 2022_03_26_062424) do
+
+  create_table "cafes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "nearest_station"
+    t.string "transportation"
+    t.string "business_hours"
+    t.string "regular_holiday"
+    t.boolean "can_takeout"
+    t.boolean "has_parking"
+    t.boolean "has_wifi"
+    t.boolean "has_power_supply"
+    t.boolean "can_smoking"
+    t.string "memo"
+    t.string "tabelog_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "user_name"
