@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2022_03_26_071955) do
     t.boolean "has_power_supply"
     t.boolean "can_smoking"
     t.string "memo"
+    t.string "img_path"
     t.string "tabelog_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -21,6 +21,7 @@ Cafe.create!(
       has_power_supply: 1,
       can_smoking: 0,
       memo: "コンセントはあるが狭い席か、コンセントはないが広い席がある。",
+      img_path: "assets/img/komeda_logo.png",
       tabelog_url: "https://tabelog.com/tokyo/A1322/A132204/13185412/"
     },
     {
@@ -36,6 +37,7 @@ Cafe.create!(
       has_power_supply: 0,
       can_smoking: 0,
       memo: "TSUTAYAの本屋が目の前にある",
+      img_path: "assets/img/starbacks_logo.png",
       tabelog_url: "https://tabelog.com/tokyo/A1322/A132204/13193724/"
     }
   ]
