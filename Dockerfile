@@ -2,12 +2,12 @@ FROM ruby:3.0.1
 
 RUN apt-get update -qq
 
-RUN mkdir /tweet-app-api
-WORKDIR /tweet-app-api
-COPY Gemfile /tweet-app-api/Gemfile
-COPY Gemfile.lock /tweet-app-api/Gemfile.lock
+RUN mkdir /cafe_note_backend
+WORKDIR /cafe_note_backend
+COPY Gemfile /cafe_note_backend/Gemfile
+COPY Gemfile.lock /cafe_note_backend/Gemfile.lock
 RUN bundle install
-COPY . /tweet-app-api
+COPY . /cafe_note_backend
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
