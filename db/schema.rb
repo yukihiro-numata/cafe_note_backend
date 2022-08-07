@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_26_071955) do
+ActiveRecord::Schema.define(version: 2022_08_06_054847) do
+
+  create_table "cafe_addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "cafe_id", null: false
+    t.integer "post_code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "building"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cafe_id"], name: "index_cafe_addresses_on_cafe_id"
+  end
 
   create_table "cafes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.string "address", null: false
     t.string "nearest_station", null: false
     t.string "transportation", null: false
     t.string "business_hours", null: false
@@ -39,4 +50,5 @@ ActiveRecord::Schema.define(version: 2022_03_26_071955) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "cafe_addresses", "cafes"
 end

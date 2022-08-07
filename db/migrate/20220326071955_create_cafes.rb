@@ -2,7 +2,6 @@ class CreateCafes < ActiveRecord::Migration[6.1]
   def change
     create_table :cafes do |t|
       t.string :name, null: false
-      t.string :address, null: false
       t.string :nearest_station, null: false
       t.string :transportation, null: false
       t.string :business_hours, null: false
