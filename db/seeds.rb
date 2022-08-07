@@ -9,8 +9,8 @@
 Cafe.create!(
   [
     {
+      id: 1,
       name: "コメダ珈琲成増駅前店",
-      address: "東京都板橋区成増2-15-18 成増プライム2階",
       nearest_station: "東武東上線成増駅",
       transportation: "東武東上線【成増駅】徒歩１分\n東京メトロ有楽町線・副都心線【地下鉄成増駅】徒歩２分\n\n\n地下鉄成増駅から94m",
       business_hours: "7:00〜20:00",
@@ -25,8 +25,8 @@ Cafe.create!(
       tabelog_url: "https://tabelog.com/tokyo/A1322/A132204/13185412/"
     },
     {
+      id: 2,
       name: "スターバックスコーヒー エキア成増店",
-      address: "東京都板橋区成増2-13−１ EQUiA成増2階",
       nearest_station: "東武東上線成増駅",
       transportation: "東武東上線【成増駅】直結\n東京メトロ有楽町線・副都心線【地下鉄成増駅】徒歩３分\n\n\n成増駅から5m",
       business_hours: "7:00〜22:30",
@@ -39,6 +39,27 @@ Cafe.create!(
       memo: "TSUTAYAの本屋が目の前にある",
       img_path: "assets/icon/coffee-2.svg",
       tabelog_url: "https://tabelog.com/tokyo/A1322/A132204/13193724/"
+    }
+  ]
+)
+
+CafeAddress.create!(
+  [
+    {
+      cafe_id: 1,
+      post_code: '1750094',
+      prefecture: '東京都',
+      city: '板橋区成増',
+      address: '2-15-18',
+      building: '成増プライム2階'
+    },
+    {
+      cafe_id: 2,
+      post_code: '1750094',
+      prefecture: '東京都',
+      city: '板橋区成増',
+      address: '2-13-1',
+      building: 'EQUiA成増2階'
     }
   ]
 )
