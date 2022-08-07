@@ -22,7 +22,6 @@ Cafe.create!(
       can_smoking: 0,
       memo: "コンセントはあるが狭い席か、コンセントはないが広い席がある。",
       img_path: "assets/icon/coffee-1.svg",
-      tabelog_url: "https://tabelog.com/tokyo/A1322/A132204/13185412/"
     },
     {
       id: 2,
@@ -38,7 +37,6 @@ Cafe.create!(
       can_smoking: 0,
       memo: "TSUTAYAの本屋が目の前にある",
       img_path: "assets/icon/coffee-2.svg",
-      tabelog_url: "https://tabelog.com/tokyo/A1322/A132204/13193724/"
     }
   ]
 )
@@ -60,6 +58,26 @@ CafeAddress.create!(
       city: '板橋区成増',
       address: '2-13-1',
       building: 'EQUiA成増2階'
+    }
+  ]
+)
+
+CafeMedium.create!(
+  [
+    {
+      cafe_id: 1,
+      media_type: :google_map,
+      url: 'https://goo.gl/maps/TjFtYSiFfQFp3ttY8'
+    },
+    {
+      cafe_id: 1,
+      media_type: :tabelog,
+      url: 'https://tabelog.com/tokyo/A1322/A132204/13185412/'
+    },
+    {
+      cafe_id: 2,
+      media_type: :tabelog,
+      url: 'https://tabelog.com/tokyo/A1322/A132204/13193724/'
     }
   ]
 )
