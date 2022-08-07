@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2022_08_06_054847) do
 
   create_table "cafe_addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "cafe_id", null: false
-    t.integer "post_code", null: false
+    t.string "post_code", limit: 7, null: false
     t.string "prefecture", null: false
     t.string "city", null: false
     t.string "address", null: false
