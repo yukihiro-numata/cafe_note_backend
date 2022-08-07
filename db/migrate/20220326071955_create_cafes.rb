@@ -13,7 +13,6 @@ class CreateCafes < ActiveRecord::Migration[6.1]
       t.boolean :can_smoking, null: false
       t.string :memo, null: false
       t.string :img_path, null: false
-      t.string :tabelog_url
       t.timestamps
     end
   end
