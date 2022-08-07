@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_08_07_054253) do
 
   create_table "cafe_media", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "cafe_id", null: false
-    t.integer "type", limit: 1, null: false
+    t.integer "media_type", limit: 1, null: false
     t.text "url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
