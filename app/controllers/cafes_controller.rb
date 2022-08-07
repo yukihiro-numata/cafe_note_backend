@@ -1,11 +1,11 @@
 class CafesController < ApplicationController
   def index
-    cafes = Cafe.includes(:cafe_address).order(created_at: :desc)
+    cafes = Cafe.includes([:cafe_address, :cafe_media]).order(created_at: :desc)
     render json: cafes, root: 'data', adapter: :json, each_serializer: CafeSerializer
   end
 
   def show
-    cafe = Cafe.includes(:cafe_address).find(params[:id])
+    cafe = Cafe.find(params[:id])
     render json: cafe, root: 'data', adapter: :json, serializer: CafeSerializer
   end
 
@@ -21,6 +21,12 @@ class CafesController < ApplicationController
           address: params[:address],
           building: params[:building],
         )
+        unless params[:media].nil?
+          # TODO: bulk insertに変更
+          params[:media].each do |media|
+            CafeMedium.create!(cafe: cafe, media_type: media[:media_type], url: media[:url])
+          end
+        end
         render json: cafe, root: 'data', adapter: :json, serializer: CafeSerializer
       end
     rescue => e
