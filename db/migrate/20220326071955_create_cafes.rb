@@ -11,7 +11,6 @@ class CreateCafes < ActiveRecord::Migration[6.1]
       t.boolean :has_wifi, null: false
       t.boolean :has_power_supply, null: false
       t.boolean :can_smoking, null: false
-      t.string :memo, null: false
       t.string :img_path, null: false
       t.timestamps
     end

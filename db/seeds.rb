@@ -20,8 +20,7 @@ Cafe.create!(
       has_wifi: 1,
       has_power_supply: 1,
       can_smoking: 0,
-      memo: "コンセントはあるが狭い席か、コンセントはないが広い席がある。",
-      img_path: "assets/icon/coffee-1.svg",
+      img_path: "assets/icon/coffee-1.svg"
     },
     {
       id: 2,
@@ -35,8 +34,7 @@ Cafe.create!(
       has_wifi: 1,
       has_power_supply: 0,
       can_smoking: 0,
-      memo: "TSUTAYAの本屋が目の前にある",
-      img_path: "assets/icon/coffee-2.svg",
+      img_path: "assets/icon/coffee-2.svg"
     }
   ]
 )

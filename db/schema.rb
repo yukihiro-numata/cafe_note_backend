@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2022_08_07_054253) do
     t.boolean "has_wifi", null: false
     t.boolean "has_power_supply", null: false
     t.boolean "can_smoking", null: false
-    t.string "memo", null: false
     t.string "img_path", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

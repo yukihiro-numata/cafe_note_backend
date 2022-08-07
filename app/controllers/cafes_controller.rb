@@ -52,9 +52,7 @@ class CafesController < ApplicationController
         :has_wifi,
         :has_power_supply,
         :can_smoking,
-        :memo,
-        :img_path,
-        :tabelog_url
+        :img_path
       )
   end
 end
