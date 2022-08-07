@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_06_054847) do
+ActiveRecord::Schema.define(version: 2022_08_07_054253) do
 
   create_table "cafe_addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "cafe_id", null: false
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2022_08_06_054847) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cafe_id"], name: "index_cafe_addresses_on_cafe_id"
+  end
+
+  create_table "cafe_media", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "cafe_id", null: false
+    t.integer "type", limit: 1, null: false
+    t.text "url", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cafe_id"], name: "index_cafe_media_on_cafe_id"
   end
 
   create_table "cafes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -37,7 +46,6 @@ ActiveRecord::Schema.define(version: 2022_08_06_054847) do
     t.boolean "can_smoking", null: false
     t.string "memo", null: false
     t.string "img_path", null: false
-    t.string "tabelog_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -51,4 +59,5 @@ ActiveRecord::Schema.define(version: 2022_08_06_054847) do
   end
 
   add_foreign_key "cafe_addresses", "cafes"
+  add_foreign_key "cafe_media", "cafes"
 end
