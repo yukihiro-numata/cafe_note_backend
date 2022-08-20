@@ -2,7 +2,7 @@ Cafe.create!(
   [
     {
       id: 1,
-      name: "スターバックス コーヒー ＪＲ東海 東京駅新幹線南ラチ内店",
+      name: "スターバックスコーヒー ＪＲ東海東京駅新幹線南ラチ内店",
       nearest_station: "東京駅",
       transportation: "東京駅八重洲地下街8出口（JR横須賀線、JR京浜東北線、JR京葉線、JR山手線、JR上越新幹線、JR総武快速線、JR中央本線、JR長野新幹線、JR東海道新幹線、JR東海道本線）徒歩3分",
       business_hours: "6:30〜09:30",
@@ -16,7 +16,7 @@ Cafe.create!(
     },
     {
       id: 2,
-      name: "スターバックス コーヒー ＪＲ東京駅日本橋口店",
+      name: "スターバックスコーヒー ＪＲ東京駅日本橋口店",
       nearest_station: "東京駅",
       transportation: "東京駅日本橋口すぐ",
       business_hours: "7:00〜22:00",
