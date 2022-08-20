@@ -27,6 +27,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'active_model_serializers', '0.10'
 gem 'virtus', '2.0.0'
+gem 'activerecord-import', '1.4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
