@@ -4,10 +4,8 @@ class CreateCafes < ActiveRecord::Migration[6.1]
       t.string :name, null: false
       t.string :nearest_station, null: false
       t.string :transportation, null: false
-      # 営業時間（曜日によって変わることがある）
-      t.string :business_hours, null: false
-      # 定休日（曜日固定の場合と日付固定の場合がある）
-      t.string :regular_holiday, null: false
+      t.string :business_hours, null: false # TODO: 営業時間（曜日によって変わることがある）
+      t.string :regular_holiday, null: false # TODO: 定休日（曜日固定の場合と日付固定の場合がある）
       t.boolean :can_takeout, null: false
       t.boolean :has_parking, null: false
       t.boolean :has_wifi, null: false
