@@ -32,6 +32,10 @@ gem 'activerecord-import', '1.4.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rubocop', '1.35', require: false
+  gem 'rubocop-performance', '1.14.3', require: false
+  gem 'rubocop-rails', '2.15.2', require: false
+  gem 'rubocop-rspec', '2.12.1'
 end
 
 group :development do
