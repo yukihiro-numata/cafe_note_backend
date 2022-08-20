@@ -31,3 +31,5 @@
 
 # Docker
 /.mysql-data/*
+
+/vendor/bundle
