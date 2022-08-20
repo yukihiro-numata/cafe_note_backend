@@ -44,7 +44,7 @@ class CafeForm
         has_wifi: has_wifi,
         has_power_supply: has_power_supply,
         can_smoking: can_smoking,
-        img_path: img_path,
+        img_path: img_path
       )
 
       medium_args = []

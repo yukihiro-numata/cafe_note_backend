@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_07_054253) do
-
+ActiveRecord::Schema.define(version: 20_220_807_054_253) do
   create_table "cafe_addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "cafe_id", null: false
     t.string "post_code", limit: 7, null: false

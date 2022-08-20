@@ -6,5 +6,5 @@ class CafeMediaForm
   attribute :url, String
 
   validates :media_type, presence: true, inclusion: { in: CafeMedium.media_types.keys }
-  validates :url, presence: true, format: /\A#{URI::regexp(%w(http https))}\z/
+  validates :url, presence: true, format: /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/
 end
