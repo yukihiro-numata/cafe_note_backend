@@ -1,6 +1,6 @@
 class CafesController < ApplicationController
   def index
-    cafes = Cafe.includes([:cafe_address, :cafe_media]).order(created_at: :desc)
+    cafes = Cafe.includes(%i[cafe_address cafe_media]).order(created_at: :desc)
     render200_with_array(array_data: cafes, serializer: CafeSerializer)
   end
 
@@ -43,9 +43,9 @@ class CafesController < ApplicationController
       :city,
       :address,
       :building,
-      medium: [
-        :media_type,
-        :url
+      medium: %i[
+        media_type
+        url
       ]
     )
   end

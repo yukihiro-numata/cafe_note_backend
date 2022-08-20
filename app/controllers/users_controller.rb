@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: %i[show update destroy]
 
   def show
     render json: { status: 'SUCCESS', message: 'Loaded the user', data: @user }
@@ -16,7 +16,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    render json: @user.update(post_params) ? { status: 'SUCCESS', message: 'Update the user', data: @user } : { status: 'SUCCESS', message: 'Not updated', data: @user.errors }
+    render json: if @user.update(post_params)
+                   { status: 'SUCCESS', message: 'Update the user',
+                     data: @user }
+                 else
+                   { status: 'SUCCESS', message: 'Not updated',
+                     data: @user.errors }
+                 end
   end
 
   private

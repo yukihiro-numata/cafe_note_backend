@@ -2,31 +2,31 @@ Cafe.create!(
   [
     {
       id: 1,
-      name: "スターバックスコーヒー ＪＲ東海東京駅新幹線南ラチ内店",
-      nearest_station: "東京駅",
-      transportation: "東京駅八重洲地下街8出口（JR横須賀線、JR京浜東北線、JR京葉線、JR山手線、JR上越新幹線、JR総武快速線、JR中央本線、JR長野新幹線、JR東海道新幹線、JR東海道本線）徒歩3分",
-      business_hours: "6:30〜09:30",
-      regular_holiday: "無",
+      name: 'スターバックスコーヒー ＪＲ東海東京駅新幹線南ラチ内店',
+      nearest_station: '東京駅',
+      transportation: '東京駅八重洲地下街8出口（JR横須賀線、JR京浜東北線、JR京葉線、JR山手線、JR上越新幹線、JR総武快速線、JR中央本線、JR長野新幹線、JR東海道新幹線、JR東海道本線）徒歩3分',
+      business_hours: '6:30〜09:30',
+      regular_holiday: '無',
       can_takeout: 1,
       has_parking: 0,
       has_wifi: 1,
       has_power_supply: 1,
       can_smoking: 0,
-      img_path: "assets/icon/coffee-1.svg"
+      img_path: 'assets/icon/coffee-1.svg'
     },
     {
       id: 2,
-      name: "スターバックスコーヒー ＪＲ東京駅日本橋口店",
-      nearest_station: "東京駅",
-      transportation: "東京駅日本橋口すぐ",
-      business_hours: "7:00〜22:00",
-      regular_holiday: "無",
+      name: 'スターバックスコーヒー ＪＲ東京駅日本橋口店',
+      nearest_station: '東京駅',
+      transportation: '東京駅日本橋口すぐ',
+      business_hours: '7:00〜22:00',
+      regular_holiday: '無',
       can_takeout: 1,
       has_parking: 0,
       has_wifi: 1,
       has_power_supply: 1,
       can_smoking: 0,
-      img_path: "assets/icon/coffee-2.svg"
+      img_path: 'assets/icon/coffee-2.svg'
     }
   ]
 )
