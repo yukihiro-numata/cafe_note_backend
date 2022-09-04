@@ -9,17 +9,17 @@ services:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - .mysql-data:/var/lib/mysql
+      - ./db/mysql/volumes:/var/lib/mysql # ホストの./db/mysql/volumesをコンテナ内の/var/lib/mysqlにマウント。Dockerのコンテナとローカルを同期するためコンテナを削除してもデータは永続化する。
 
   web:
-    build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    build: . # docker-compose.ymlと同じ階層にあるDockerfileを使ってimageをbuild
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/cafe_note_backend
+      - .:/cafe_note_backend # 作業ディレクトリをコンテナ内の/cafe_note_backendにマウント
+      - gem_data:/usr/local/bundle # ローカルのgem_dataをコンテナ内のusr/local/bundleにマウント
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      - db # dbが起動してからwebを起動するという依存関係を表す
 volumes:
-  mysql-data:
-    driver: local
+  gem_data:

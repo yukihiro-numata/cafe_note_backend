@@ -30,6 +30,6 @@
 /.idea/*
 
 # Docker
-/.mysql-data/*
+/db
 
 /vendor/bundle
