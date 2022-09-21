@@ -51,4 +51,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :test do
   gem 'rspec-rails', '5.1.2'
   gem 'factory_bot_rails', '6.2.0'
+  gem 'rspec-parameterized', '0.5.2'
 end
