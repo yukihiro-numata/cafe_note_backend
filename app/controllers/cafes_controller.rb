@@ -10,13 +10,10 @@ class CafesController < ApplicationController
   end
 
   def create
-    cafe_form = CafeForm.new(cafe_params)
-    if cafe_form.invalid?
-      render400
-      return
-    end
-    cafe = cafe_form.save!
+    cafe = CafeForm.new(cafe_params).save!
     render200(data: cafe, serializer: CafeSerializer)
+  rescue ArgumentError
+    render400
   rescue StandardError => e
     logger.error('Could not create cafe.')
     logger.error(e)
