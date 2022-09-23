@@ -47,10 +47,7 @@ class CafeForm
         img_path: img_path
       )
 
-      medium_args = []
-      medium.each do |media|
-        medium_args << CafeMedium.new(cafe: cafe, media_type: media.media_type, url: media.url)
-      end
+      medium_args = medium.map { |media| CafeMedium.new(cafe: cafe, media_type: media.media_type, url: media.url) }
       CafeMedium.import!(medium_args)
 
       cafe
