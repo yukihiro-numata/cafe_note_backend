@@ -17,7 +17,7 @@ RSpec.describe CafeMediaForm do
           expect(CafeMediaForm.new(url: 'https://example.com').valid?).to be_falsey
         end
 
-        where(:media_type) { %W[test #{}] }
+        where(:media_type) { %w[test] }
         with_them do
           it 'valid? should return false with invalid argument' do
             expect(subject).to be_falsey
@@ -43,7 +43,7 @@ RSpec.describe CafeMediaForm do
           expect(CafeMediaForm.new(media_type: :google_map).valid?).to be_falsey
         end
 
-        where(:url) { %W[example.com http//example.com htt://example.com #{}] }
+        where(:url) { %w[example.com http//example.com htt://example.com] }
         with_them do
           it 'valid? should return false with invalid argument' do
             expect(subject).to be_falsey
