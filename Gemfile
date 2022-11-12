@@ -53,4 +53,5 @@ group :test do
   gem 'factory_bot_rails', '6.2.0'
   gem 'rspec-parameterized', '0.5.2'
   gem 'rspec-rails', '5.1.2'
+  gem 'rspec-json_matcher', '0.2.0'
 end
