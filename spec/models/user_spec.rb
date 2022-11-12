@@ -32,4 +32,13 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'before_save' do
+    context 'email' do
+      it '大文字は小文字に変換して登録されること' do
+        user = User.create!(firebase_uid: 'uid', email: 'User@Example.com')
+        expect(User.find_by(id: user.id).email).to eq 'user@example.com'
+      end
+    end
+  end
 end
