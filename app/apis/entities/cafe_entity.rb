@@ -12,5 +12,7 @@ module Entities
     expose :has_power_supply
     expose :can_smoking
     expose :img_path
+    expose :cafe_address, using: Entities::CafeAddressEntity
+    expose :cafe_media, using: Entities::CafeMediaEntity
   end
 end
