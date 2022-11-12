@@ -50,9 +50,8 @@ ActiveRecord::Schema.define(version: 2022_08_07_054253) do
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "user_name"
-    t.string "tel"
-    t.string "email"
+    t.string "firebase_uid", null: false
+    t.string "email", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
