@@ -17,4 +17,5 @@
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'cafe', 'cafes'
+  inflect.acronym 'API'
 end
