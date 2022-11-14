@@ -133,4 +133,66 @@ describe 'api cafes', :type => :request do
       end
     end
   end
+
+  describe 'post' do
+    describe 'archive' do
+      subject do
+        post "/cafes/#{id}/archive",
+             params: { user_id: user_id, rating: rating, memo: memo, visited_at: visited_at, image_paths: image_paths }
+      end
+      let!(:user) { create(:user) }
+      let!(:cafe) { create(:cafe) }
+
+      context '正常系' do
+        let!(:id) { cafe.id }
+        let!(:user_id) { user.id }
+        let!(:rating) { 1 }
+        let!(:memo) { 'test' }
+        let!(:visited_at) { Time.zone.local(2022, 11, 15, 10, 0, 0) }
+        let!(:image_paths) { %w[/sample1 /sample2] }
+        it 'データ登録されること' do
+          expect { subject }.to change(UserCafeArchive, :count).by(1).and change(UserCafeArchiveImage, :count).by(2)
+          expect(response).to have_http_status 201
+          archive = UserCafeArchive.find_by(user_id: user.id, cafe_id: id)
+          expect(archive.rating).to eq 1
+          expect(archive.memo).to eq 'test'
+          expect(archive.visited_at).to eq Time.zone.local(2022, 11, 15, 10, 0, 0)
+        end
+      end
+
+      context '異常系' do
+        context 'パラメータが不正な場合' do
+          let!(:id) { cafe.id }
+          let!(:user_id) { user.id }
+          let!(:memo) { 'test' }
+          where(:rating, :visited_at, :image_paths) do
+            [
+              [0, Time.zone.local(2022, 11, 15, 10, 0, 0), %w[/sample1 /sample2]],
+              [1, 'invalid', %w[/sample1 /sample2]],
+              [1, 1, %w[/sample1 /sample2]],
+              [1, Time.zone.local(2022, 11, 15, 10, 0, 0), 'invalid'],
+            ]
+          end
+          with_them do
+            it 'データ登録できないこと' do
+              subject
+              expect(response).to have_http_status 400
+            end
+          end
+        end
+        context '存在しないIDを指定した場合' do
+          let!(:id) { 9999 }
+          let!(:user_id) { user.id }
+          let!(:rating) { 1 }
+          let!(:memo) { 'test' }
+          let!(:visited_at) { Time.zone.local(2022, 11, 15, 10, 0, 0) }
+          let!(:image_paths) { %w[/sample1 /sample2] }
+          it 'データ登録できないこと' do
+            subject
+            expect(response).to have_http_status 404
+          end
+        end
+      end
+    end
+  end
 end
