@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_07_054253) do
+ActiveRecord::Schema.define(version: 2022_11_14_143557) do
 
   create_table "cafe_addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "cafe_id", null: false
@@ -49,6 +49,18 @@ ActiveRecord::Schema.define(version: 2022_08_07_054253) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_cafe_archives", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "cafe_id", null: false
+    t.bigint "rating", null: false
+    t.text "memo", null: false
+    t.datetime "visited_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cafe_id"], name: "index_user_cafe_archives_on_cafe_id"
+    t.index ["user_id"], name: "index_user_cafe_archives_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "firebase_uid", null: false
     t.string "email", null: false
@@ -59,4 +71,6 @@ ActiveRecord::Schema.define(version: 2022_08_07_054253) do
 
   add_foreign_key "cafe_addresses", "cafes"
   add_foreign_key "cafe_media", "cafes"
+  add_foreign_key "user_cafe_archives", "cafes"
+  add_foreign_key "user_cafe_archives", "users"
 end
