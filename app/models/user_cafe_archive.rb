@@ -24,4 +24,5 @@
 class UserCafeArchive < ApplicationRecord
   belongs_to :user
   belongs_to :cafe
+  has_many :user_cafe_archive_images, dependent: :destroy
 end
