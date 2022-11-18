@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'api cafes', :type => :request do
+describe 'api cafes', type: :request do
   describe 'get' do
     describe 'list' do
       subject { get '/cafes' }
@@ -42,16 +42,16 @@ describe 'api cafes', :type => :request do
                   'prefecture' => String,
                   'city' => String,
                   'address' => String,
-                  'building' => String,
+                  'building' => String
                 },
                 'cafe_media' => [
                   {
                     'id' => Integer,
                     'cafe_id' => Integer,
                     'media_type' => String,
-                    'url' => String,
-                  },
-                ],
+                    'url' => String
+                  }
+                ]
               }
             ]
           )
@@ -100,16 +100,16 @@ describe 'api cafes', :type => :request do
                 'prefecture' => String,
                 'city' => String,
                 'address' => String,
-                'building' => String,
+                'building' => String
               },
               'cafe_media' => [
                 {
                   'id' => Integer,
                   'cafe_id' => Integer,
                   'media_type' => String,
-                  'url' => String,
-                },
-              ],
+                  'url' => String
+                }
+              ]
             }
           )
         end
@@ -170,7 +170,7 @@ describe 'api cafes', :type => :request do
               [0, Time.zone.local(2022, 11, 15, 10, 0, 0), %w[/sample1 /sample2]],
               [1, 'invalid', %w[/sample1 /sample2]],
               [1, 1, %w[/sample1 /sample2]],
-              [1, Time.zone.local(2022, 11, 15, 10, 0, 0), 'invalid'],
+              [1, Time.zone.local(2022, 11, 15, 10, 0, 0), 'invalid']
             ]
           end
           with_them do

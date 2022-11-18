@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'api users', :type => :request do
+describe 'api users', type: :request do
   describe 'post' do
     subject { post '/users', params: { firebase_uid: 'uid', email: email } }
     context '正常系' do
@@ -12,7 +12,7 @@ describe 'api users', :type => :request do
           {
             'id' => Integer,
             'firebase_uid' => String,
-            'email' => String,
+            'email' => String
           }
         )
       end

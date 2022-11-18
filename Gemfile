@@ -27,9 +27,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'active_model_serializers', '0.10'
 gem 'activerecord-import', '1.4.0'
-gem 'virtus', '2.0.0'
 gem 'grape', '1.6.2'
 gem 'grape-entity', '0.10.2'
+gem 'virtus', '2.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -41,8 +41,8 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.3'
   gem 'annotate', '3.2.0'
+  gem 'listen', '~> 3.3'
   gem 'spring'
 end
 
@@ -51,7 +51,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :test do
   gem 'factory_bot_rails', '6.2.0'
+  gem 'rspec-json_matcher', '0.2.0'
   gem 'rspec-parameterized', '0.5.2'
   gem 'rspec-rails', '5.1.2'
-  gem 'rspec-json_matcher', '0.2.0'
 end

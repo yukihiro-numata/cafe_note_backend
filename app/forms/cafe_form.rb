@@ -32,7 +32,8 @@ class CafeForm
   validates :address, presence: true
 
   def save!
-    raise ArgumentError if self.invalid?
+    raise ArgumentError if invalid?
+
     ActiveRecord::Base.transaction do
       cafe = Cafe.create!(
         name: name,

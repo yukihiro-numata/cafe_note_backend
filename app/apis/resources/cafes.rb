@@ -4,7 +4,7 @@ module Resources
       desc 'return cafes'
       get '/' do
         @cafes = Cafe.includes(%i[cafe_address cafe_media]).order(created_at: :desc)
-        present @cafes, with:Entities::CafeEntity
+        present @cafes, with: Entities::CafeEntity
       end
 
       desc 'return a cafe'
@@ -36,7 +36,9 @@ module Resources
             memo: params[:memo],
             visited_at: params[:visited_at]
           )
-          image_inputs = params[:image_paths].map { |p| UserCafeArchiveImage.new(user_cafe_archive_id: @archive.id, image_path: p) }
+          image_inputs = params[:image_paths].map do |p|
+            UserCafeArchiveImage.new(user_cafe_archive_id: @archive.id, image_path: p)
+          end
           UserCafeArchiveImage.import!(image_inputs)
         end
         present @archive, with: Entities::UserCafeArchiveEntity
