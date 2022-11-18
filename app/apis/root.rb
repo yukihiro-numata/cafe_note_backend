@@ -7,4 +7,5 @@ class Root < Grape::API
 
   mount Resources::Users
   mount Resources::Cafes
+  mount Resources::UserCafeArchives
 end
