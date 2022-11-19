@@ -29,6 +29,7 @@ gem 'active_model_serializers', '0.10'
 gem 'activerecord-import', '1.4.0'
 gem 'grape', '1.6.2'
 gem 'grape-entity', '0.10.2'
+gem 'jwt', '2.5.0'
 gem 'virtus', '2.0.0'
 
 group :development, :test do
