@@ -1,5 +1,5 @@
 module Entities
-  class UserEntity < Grape::Entity
+  class UserEntity < BaseEntity
     expose :id
     expose :firebase_uid
     expose :email

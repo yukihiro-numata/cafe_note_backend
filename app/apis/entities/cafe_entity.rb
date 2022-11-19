@@ -1,5 +1,5 @@
 module Entities
-  class CafeEntity < Grape::Entity
+  class CafeEntity < BaseEntity
     expose :id
     expose :name
     expose :nearest_station

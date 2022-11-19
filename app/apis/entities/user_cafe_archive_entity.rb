@@ -1,5 +1,5 @@
 module Entities
-  class UserCafeArchiveEntity < Grape::Entity
+  class UserCafeArchiveEntity < BaseEntity
     expose :id
     expose :cafe_id
     expose :rating

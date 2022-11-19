@@ -1,5 +1,5 @@
 module Entities
-  class CafeAddressEntity < Grape::Entity
+  class CafeAddressEntity < BaseEntity
     expose :id
     expose :cafe_id
     expose :post_code

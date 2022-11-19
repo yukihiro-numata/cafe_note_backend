@@ -1,5 +1,5 @@
 module Entities
-  class CafeMediaEntity < Grape::Entity
+  class CafeMediaEntity < BaseEntity
     expose :id
     expose :cafe_id
     expose :media_type

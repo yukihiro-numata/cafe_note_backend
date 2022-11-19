@@ -1,5 +1,5 @@
 module Entities
-  class UserCafeArchiveImageEntity < Grape::Entity
+  class UserCafeArchiveImageEntity < BaseEntity
     expose :id
     expose :user_cafe_archive_id
     expose :image_path
