@@ -1,15 +1,16 @@
 require 'rails_helper'
 
 describe 'api user cafe archives', type: :request do
+  include_context 'user_authorized!'
+
   describe 'get' do
     describe 'list' do
-      subject { get '/user_cafe_archives', params: { user_id: user_1.id } }
+      subject { get '/user_cafe_archives' }
       let!(:cafe) { create(:cafe) }
-      let!(:user_1) { create(:user, email: 'aaa@example.com') }
-      let!(:user_2) { create(:user, email: 'bbb@example.com') }
-      let!(:cafe_archives_1) { create(:user_cafe_archive, cafe: cafe, user: user_1) }
-      let!(:cafe_archives_2) { create(:user_cafe_archive, cafe: cafe, user: user_2) }
-      let!(:cafe_archives_3) { create(:user_cafe_archive, cafe: cafe, user: user_1) }
+      let!(:other_user) { create(:user, email: 'aaa@example.com') }
+      let!(:cafe_archives_1) { create(:user_cafe_archive, cafe: cafe, user: user) }
+      let!(:cafe_archives_2) { create(:user_cafe_archive, cafe: cafe, user: other_user) }
+      let!(:cafe_archives_3) { create(:user_cafe_archive, cafe: cafe, user: user) }
       context '正常系' do
         it 'データ取得できること' do
           subject
@@ -36,17 +37,16 @@ describe 'api user cafe archives', type: :request do
     end
 
     describe 'with id' do
-      subject { get "/user_cafe_archives/#{cafe_archive_id}", params: { user_id: user_1.id } }
-      let!(:user_1) { create(:user, email: 'aaa@example.com') }
-      let!(:user_2) { create(:user, email: 'bbb@example.com') }
+      subject { get "/user_cafe_archives/#{cafe_archive_id}" }
+      let!(:other_user) { create(:user, email: 'aaa@example.com') }
       let!(:cafe) { create(:cafe) }
       let!(:cafe_archives_1) do
-        create(:user_cafe_archive, user: user_1, cafe: cafe).tap do |a|
+        create(:user_cafe_archive, user: user, cafe: cafe).tap do |a|
           create(:user_cafe_archive_image, user_cafe_archive: a)
         end
       end
       let!(:cafe_archives_2) do
-        create(:user_cafe_archive, user: user_2, cafe: cafe).tap do |a|
+        create(:user_cafe_archive, user: other_user, cafe: cafe).tap do |a|
           create(:user_cafe_archive_image, user_cafe_archive: a)
         end
       end
