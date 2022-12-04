@@ -1,5 +1,6 @@
 class Root < Grape::API
   format :json
+  content_type :json, 'application/json; charset=utf-8'
   helpers APIHelper
 
   rescue_from ActiveRecord::RecordNotFound do |e|
