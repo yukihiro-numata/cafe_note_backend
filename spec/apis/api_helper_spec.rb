@@ -8,7 +8,7 @@ describe 'APIHelper' do
     context '正常系' do
       let!(:user) { create(:user) }
       before do
-        decoded_result = { 'user_id' => user.firebase_uid }
+        decoded_result = [{ 'user_id' => user.firebase_uid }]
         allow(JWT).to receive(:decode).and_return(decoded_result)
         allow(dummy_class).to receive(:bearer_token).and_return('token')
       end

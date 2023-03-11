@@ -14,7 +14,7 @@ module APIHelper
     return nil if bearer_token.nil?
     # TODO: JWTの検証を行うようにする
     decoded_token = JWT.decode(bearer_token, nil, false)
-    User.find_by(firebase_uid: decoded_token['user_id'])
+    User.find_by(firebase_uid: decoded_token[0]['user_id'])
   end
 
   def authenticate!
