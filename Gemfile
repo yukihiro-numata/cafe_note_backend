@@ -31,12 +31,14 @@ gem 'grape-entity', '0.10.2'
 gem 'jwt', '2.5.0'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', '1.35', require: false
   gem 'rubocop-performance', '1.14.3', require: false
   gem 'rubocop-rails', '2.15.2', require: false
   gem 'rubocop-rspec', '2.12.1'
+  gem 'pry-rails', '0.3.9'
+  gem 'pry-doc', '1.3.0'
+  gem 'pry-byebug', '3.10.1'
+  gem 'pry-stack_explorer', '0.6.1'
 end
 
 group :development do

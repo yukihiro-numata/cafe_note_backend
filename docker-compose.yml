@@ -21,5 +21,7 @@ services:
       - "3000:3000"
     depends_on:
       - db # dbが起動してからwebを起動するという依存関係を表す
+    tty: true
+    stdin_open: true
 volumes:
   gem_data:
