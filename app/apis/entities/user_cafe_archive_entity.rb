@@ -1,10 +1,10 @@
 module Entities
   class UserCafeArchiveEntity < BaseEntity
-    expose :id
-    expose :cafe_id
-    expose :rating
-    expose :memo
-    expose :visited_date
-    expose :user_cafe_archive_images, using: Entities::UserCafeArchiveImageEntity
+    expose :id, expose_nil: false
+    expose :cafe_id, expose_nil: false
+    expose :rating, expose_nil: false
+    expose :memo, expose_nil: true
+    expose :visited_date, expose_nil: false
+    expose :user_cafe_archive_images, using: Entities::UserCafeArchiveImageEntity, expose_nil: true
   end
 end
