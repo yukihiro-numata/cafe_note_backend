@@ -10,6 +10,11 @@ module Resources
         @user = User.create!(firebase_uid: params[:firebase_uid], email: params[:email])
         present @user, with: Entities::UserEntity
       end
+
+      desc 'get a user'
+      get '/' do
+        present current_user, with: Entities::UserEntity
+      end
     end
   end
 end
