@@ -15,7 +15,7 @@ describe 'api user cafe archives', type: :request do
         it 'データ取得できること' do
           subject
           expect(response).to have_http_status 200
-          expect(response.body).to be_json_including(
+          expect(JSON.parse(response.body)['data'].to_json).to be_json_including(
             [
               {
                 'id' => Integer,
@@ -29,7 +29,7 @@ describe 'api user cafe archives', type: :request do
         end
         it '特定のユーザーに紐づくデータのみ取得できること' do
           subject
-          result = JSON.parse(response.body).map { |v| v['id'] }
+          result = JSON.parse(response.body)['data'].map { |v| v['id'] }
           expect(result).to contain_exactly(cafe_archives_1.id, cafe_archives_3.id)
           expect(result).not_to contain_exactly(cafe_archives_2.id)
         end
@@ -58,7 +58,7 @@ describe 'api user cafe archives', type: :request do
         end
         it 'データ取得できること' do
           subject
-          expect(response.body).to be_json_including(
+          expect(JSON.parse(response.body)['data'].to_json).to be_json_including(
             {
               'id' => Integer,
               'cafe_id' => Integer,
@@ -73,7 +73,7 @@ describe 'api user cafe archives', type: :request do
               ],
             }
           )
-          expect(JSON.parse(response.body)['id']).to eq cafe_archives_1.id
+          expect(JSON.parse(response.body)['data']['id']).to eq cafe_archives_1.id
         end
       end
       context '異常系' do

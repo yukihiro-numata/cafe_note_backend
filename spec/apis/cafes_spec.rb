@@ -20,7 +20,7 @@ describe 'api cafes', type: :request do
         it 'リクエストに成功すること' do
           subject
           expect(response).to have_http_status 200
-          expect(response.body).to be_json_including(
+          expect(JSON.parse(response.body)['data'].to_json).to be_json_including(
             [
               {
                 'id' => Integer,
@@ -79,7 +79,7 @@ describe 'api cafes', type: :request do
         it '指定したデータ1件が取得できること' do
           subject
           expect(response).to have_http_status 200
-          expect(response.body).to be_json_including(
+          expect(JSON.parse(response.body)['data'].to_json).to be_json_including(
             {
               'id' => cafe_2.id,
               'name' => String,
