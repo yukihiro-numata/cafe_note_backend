@@ -2,14 +2,14 @@
 #
 # Table name: user_cafe_archives
 #
-#  id         :bigint           not null, primary key
-#  memo       :text(65535)      not null
-#  rating     :bigint           not null
-#  visited_at :datetime         not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  cafe_id    :bigint           not null
-#  user_id    :bigint           not null
+#  id           :bigint           not null, primary key
+#  memo         :text(65535)      not null
+#  rating       :bigint           not null
+#  visited_date :date             not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  cafe_id      :bigint           not null
+#  user_id      :bigint           not null
 #
 # Indexes
 #

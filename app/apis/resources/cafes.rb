@@ -21,7 +21,7 @@ module Resources
         requires :id, type: Integer
         requires :rating, type: Integer, values: 1..5
         requires :memo, type: String
-        requires :visited_at, type: DateTime
+        requires :visited_date, type: Date
         optional :image_paths, type: Array[String]
       end
       post '/:id/archive' do
@@ -33,7 +33,7 @@ module Resources
             cafe_id: cafe.id,
             rating: params[:rating],
             memo: params[:memo],
-            visited_at: params[:visited_at]
+            visited_date: params[:visited_date],
           )
           image_inputs = params[:image_paths].map do |p|
             UserCafeArchiveImage.new(user_cafe_archive_id: @archive.id, image_path: p)

@@ -138,7 +138,7 @@ describe 'api cafes', type: :request do
     describe 'archive' do
       subject do
         post "/cafes/#{id}/archive",
-             params: { rating: rating, memo: memo, visited_at: visited_at, image_paths: image_paths }
+             params: { rating: rating, memo: memo, visited_date: visited_date, image_paths: image_paths }
       end
       let!(:cafe) { create(:cafe) }
 
@@ -147,7 +147,7 @@ describe 'api cafes', type: :request do
         let!(:id) { cafe.id }
         let!(:rating) { 1 }
         let!(:memo) { 'test' }
-        let!(:visited_at) { Time.zone.local(2022, 11, 15, 10, 0, 0) }
+        let!(:visited_date) { '2022-11-15' }
         let!(:image_paths) { %w[/sample1 /sample2] }
         it 'データ登録されること' do
           expect { subject }.to change(UserCafeArchive, :count).by(1).and change(UserCafeArchiveImage, :count).by(2)
@@ -155,7 +155,7 @@ describe 'api cafes', type: :request do
           archive = UserCafeArchive.find_by(user_id: user.id, cafe_id: id)
           expect(archive.rating).to eq 1
           expect(archive.memo).to eq 'test'
-          expect(archive.visited_at).to eq Time.zone.local(2022, 11, 15, 10, 0, 0)
+          expect(archive.visited_date).to eq Date.new(2022, 11, 15)
         end
       end
 
@@ -164,12 +164,12 @@ describe 'api cafes', type: :request do
           include_context 'user_authorized!'
           let!(:id) { cafe.id }
           let!(:memo) { 'test' }
-          where(:rating, :visited_at, :image_paths) do
+          where(:rating, :visited_date, :image_paths) do
             [
-              [0, Time.zone.local(2022, 11, 15, 10, 0, 0), %w[/sample1 /sample2]],
+              [0, '2022-11-15', %w[/sample1 /sample2]],
               [1, 'invalid', %w[/sample1 /sample2]],
               [1, 1, %w[/sample1 /sample2]],
-              [1, Time.zone.local(2022, 11, 15, 10, 0, 0), 'invalid']
+              [1, '2022-11-15', 'invalid']
             ]
           end
           with_them do
@@ -184,7 +184,7 @@ describe 'api cafes', type: :request do
           let!(:id) { 9999 }
           let!(:rating) { 1 }
           let!(:memo) { 'test' }
-          let!(:visited_at) { Time.zone.local(2022, 11, 15, 10, 0, 0) }
+          let!(:visited_date) { '2022-11-15' }
           let!(:image_paths) { %w[/sample1 /sample2] }
           it 'データ登録できないこと' do
             subject
@@ -195,7 +195,7 @@ describe 'api cafes', type: :request do
           let!(:id) { cafe.id }
           let!(:rating) { 1 }
           let!(:memo) { 'test' }
-          let!(:visited_at) { Time.zone.local(2022, 11, 15, 10, 0, 0) }
+          let!(:visited_date) { '2022-11-15' }
           let!(:image_paths) { %w[/sample1 /sample2] }
           it 'エラーが返ること' do
             subject

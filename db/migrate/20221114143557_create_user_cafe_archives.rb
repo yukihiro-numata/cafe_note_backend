@@ -5,7 +5,7 @@ class CreateUserCafeArchives < ActiveRecord::Migration[6.1]
       t.references :cafe, null: false, foreign_key: true
       t.integer :rating, null: false, limit: 5
       t.text :memo, null: false
-      t.datetime :visited_at, null: false
+      t.date :visited_date, null: false
       t.timestamps
     end
   end
