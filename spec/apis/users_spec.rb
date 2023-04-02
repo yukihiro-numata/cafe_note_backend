@@ -8,6 +8,16 @@ describe 'api users', type: :request do
       it 'リクエストに成功すること' do
         expect { subject }.to change(User, :count).by(1)
         expect(response).to have_http_status 201
+        expect(JSON.parse(response.body)['data'].to_json).to be_json_including(
+          {
+            'id' => Integer,
+            'firebase_uid' => String,
+            'email' => String
+          }
+        )
+      end
+    end
+  end
         expect(response.body).to be_json_including(
           {
             'id' => Integer,
