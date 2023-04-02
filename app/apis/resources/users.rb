@@ -13,6 +13,7 @@ module Resources
 
       desc 'get a user'
       get '/' do
+        authenticate!
         present current_user, with: Entities::UserEntity
       end
     end
