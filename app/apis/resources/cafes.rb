@@ -18,7 +18,6 @@ module Resources
 
       desc 'archive visiting a cafe'
       params do
-        requires :user_id, type: Integer # TODO: FirebaseAuthのアクセストークンから取得するようにする
         requires :id, type: Integer
         requires :rating, type: Integer, values: 1..5
         requires :memo, type: String
@@ -26,7 +25,7 @@ module Resources
         optional :image_paths, type: Array[String]
       end
       post '/:id/archive' do
-        user = User.find(params[:user_id])
+        user = authenticate!
         cafe = Cafe.find(params[:id])
         ActiveRecord::Base.transaction do
           @archive = UserCafeArchive.create!(

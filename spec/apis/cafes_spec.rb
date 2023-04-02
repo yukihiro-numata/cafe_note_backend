@@ -138,14 +138,13 @@ describe 'api cafes', type: :request do
     describe 'archive' do
       subject do
         post "/cafes/#{id}/archive",
-             params: { user_id: user_id, rating: rating, memo: memo, visited_at: visited_at, image_paths: image_paths }
+             params: { rating: rating, memo: memo, visited_at: visited_at, image_paths: image_paths }
       end
-      let!(:user) { create(:user) }
       let!(:cafe) { create(:cafe) }
 
       context '正常系' do
+        include_context 'user_authorized!'
         let!(:id) { cafe.id }
-        let!(:user_id) { user.id }
         let!(:rating) { 1 }
         let!(:memo) { 'test' }
         let!(:visited_at) { Time.zone.local(2022, 11, 15, 10, 0, 0) }
@@ -162,8 +161,8 @@ describe 'api cafes', type: :request do
 
       context '異常系' do
         context 'パラメータが不正な場合' do
+          include_context 'user_authorized!'
           let!(:id) { cafe.id }
-          let!(:user_id) { user.id }
           let!(:memo) { 'test' }
           where(:rating, :visited_at, :image_paths) do
             [
@@ -181,8 +180,8 @@ describe 'api cafes', type: :request do
           end
         end
         context '存在しないIDを指定した場合' do
+          include_context 'user_authorized!'
           let!(:id) { 9999 }
-          let!(:user_id) { user.id }
           let!(:rating) { 1 }
           let!(:memo) { 'test' }
           let!(:visited_at) { Time.zone.local(2022, 11, 15, 10, 0, 0) }
@@ -190,6 +189,17 @@ describe 'api cafes', type: :request do
           it 'データ登録できないこと' do
             subject
             expect(response).to have_http_status 404
+          end
+        end
+        context '認証に失敗する場合' do
+          let!(:id) { cafe.id }
+          let!(:rating) { 1 }
+          let!(:memo) { 'test' }
+          let!(:visited_at) { Time.zone.local(2022, 11, 15, 10, 0, 0) }
+          let!(:image_paths) { %w[/sample1 /sample2] }
+          it 'エラーが返ること' do
+            subject
+            expect(response).to have_http_status 401
           end
         end
       end
