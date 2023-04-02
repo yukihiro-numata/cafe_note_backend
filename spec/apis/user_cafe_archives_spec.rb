@@ -22,7 +22,7 @@ describe 'api user cafe archives', type: :request do
                 'cafe_id' => Integer,
                 'rating' => Integer,
                 'memo' => String,
-                'visited_at' => String
+                'visited_date' => String
               }
             ]
           )
@@ -64,7 +64,7 @@ describe 'api user cafe archives', type: :request do
               'cafe_id' => Integer,
               'rating' => Integer,
               'memo' => String,
-              'visited_at' => String,
+              'visited_date' => String,
               'user_cafe_archive_images' => [
                 {
                   'id' => Integer,
