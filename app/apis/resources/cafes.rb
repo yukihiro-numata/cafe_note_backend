@@ -20,8 +20,8 @@ module Resources
       params do
         requires :id, type: Integer
         requires :rating, type: Integer, values: 1..5
-        requires :memo, type: String
         requires :visited_date, type: Date
+        optional :memo, type: String
         optional :image_paths, type: Array[String]
       end
       post '/:id/archive' do

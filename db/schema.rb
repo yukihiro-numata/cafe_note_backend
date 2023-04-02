@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 2022_11_14_144252) do
     t.bigint "user_id", null: false
     t.bigint "cafe_id", null: false
     t.bigint "rating", null: false
-    t.text "memo", null: false
     t.date "visited_date", null: false
+    t.text "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cafe_id"], name: "index_user_cafe_archives_on_cafe_id"
