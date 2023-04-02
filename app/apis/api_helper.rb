@@ -19,6 +19,6 @@ module APIHelper
 
   def authenticate!
     user = current_user
-    user.nil? ? user : error!('Unauthorized. Invalid or expired token.', 401)
+    user.present? ? user : error!('Unauthorized. Invalid or expired token.', 401)
   end
 end
